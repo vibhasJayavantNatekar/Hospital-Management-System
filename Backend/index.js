@@ -1,6 +1,7 @@
 const express = require('express')
 const {connect} = require('./Config/db')
 const DoctorRouter = require('./Routes/DoctorRoutes')
+const userRouter = require('./Routes/userRoutes')
 
 const app = express();
 
@@ -13,6 +14,8 @@ const port = process.env.PORT || 5000
 
 //Routes
 app.use('/doctors',DoctorRouter)
+app.use('/user' ,userRouter)
+
 
 
 app.listen(port,()=>{
