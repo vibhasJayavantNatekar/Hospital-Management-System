@@ -46,15 +46,20 @@ userSchema.statics.createUser = async function (name , email ,password , role) {
 }
 
 
-userSchema.statics.getUserById = async function (email,password) {
+userSchema.statics.getUserById = async function (email, password) {
 
     //Validator
-    if(!email | !password){
+    
+     if(!email || !password){
         throw Error ("All fields are required !")
 
-    }
+     }
 
-    const user = await this.find({email})
+
+    
+
+
+    const user = await this.find({_id})
 
     if(!user){
         throw Error("Incorrect Email")

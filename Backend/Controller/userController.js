@@ -35,7 +35,7 @@ const getUserById = async function (req,res) {
     const {email , password} = req.body
 
     try {
-        const user =await User.getUserById(email , password)
+        const user = await User.getUserById({email , password})
 
         res.status(200).json({user})
     } catch (error) {
@@ -44,4 +44,6 @@ const getUserById = async function (req,res) {
     }
 }
 
-module.exports = {createUser , getAllUsers}
+
+
+module.exports = {createUser , getAllUsers , getUserById}
